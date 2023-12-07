@@ -1,6 +1,3 @@
-from Working_DataFrame import WorkDataFrame
-
-
 class UserInterface:
     @staticmethod
     def user_answer(parameter, values):
