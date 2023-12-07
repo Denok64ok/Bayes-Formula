@@ -6,7 +6,7 @@ from User_Interface import UserInterface
 class BayesFormula:
     def __init__(self, dataframe):
         self.dataframe = WorkDataFrame(dataframe)
-        self.ui = UserInterface(dataframe)
+        self.ui = UserInterface()
 
         self.len_dataframe = self.dataframe.data_len() - 1
 
@@ -34,7 +34,8 @@ class BayesFormula:
         self.ui.print_probabilities_classes(self.priori_probabilities, self.unique_classes)
 
         for count in range(0, self.len_dataframe):
-            user_feature = self.ui.user_answer(count)
+            values_parameter = self.dataframe.column_list(count)
+            user_feature = self.ui.user_answer(self.dataframe.show_parameter(count), values_parameter)
 
             cond_density = []
 

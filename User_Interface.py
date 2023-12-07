@@ -2,14 +2,11 @@ from Working_DataFrame import WorkDataFrame
 
 
 class UserInterface:
-    def __init__(self, dataframe):
-        self.dataframe = WorkDataFrame(dataframe)
-
-    def user_answer(self, count):
-        values_parameter = self.dataframe.column_list(count)
+    @staticmethod
+    def user_answer(parameter, values):
         return float(input(
             f"\nКак вы думаете каков у вашего вина, "
-            f"{self.dataframe.show_parameter(count)} ({min(values_parameter)}-{max(values_parameter)}):"))
+            f"{parameter} ({min(values)}-{max(values)}):"))
 
     @staticmethod
     def print_probabilities_classes(probability, category):
